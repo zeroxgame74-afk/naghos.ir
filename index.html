@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naghos.ir</title>
+    <title>NAGHOS.IR</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap');
 
@@ -18,9 +18,10 @@
             background: #101049;
             color: #ffffff;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Animated Background */
+        /* همون بکگراند انیمیشنی خفن - دست نخورده */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -46,7 +47,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Floating Orbs */
+        /* گوی‌های شناور */
         .orbs {
             position: fixed;
             width: 100%;
@@ -98,7 +99,7 @@
             50% { transform: translateY(-30px) scale(1.1); }
         }
 
-        /* Main Container */
+        /* کانتینر اصلی */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -107,307 +108,170 @@
             z-index: 1;
         }
 
-        /* Header */
+        /* هدر و لوگو */
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 0;
-            border-bottom: 2px solid rgba(116, 255, 179, 0.2);
+            text-align: center;
+            padding: 3rem 0 2rem 0;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 4rem;
             font-weight: 900;
+            letter-spacing: 0.5rem;
             background: linear-gradient(45deg, #74FFB3, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(116, 255, 179, 0.5);
             animation: glow 2s ease-in-out infinite alternate;
+            margin-bottom: 1rem;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(116, 255, 179, 0.5); }
-            to { text-shadow: 0 0 40px rgba(116, 255, 179, 0.8), 0 0 80px rgba(116, 255, 179, 0.4); }
+            from { 
+                text-shadow: 0 0 20px rgba(116, 255, 179, 0.5); 
+                filter: drop-shadow(0 0 20px rgba(116, 255, 179, 0.3));
+            }
+            to { 
+                text-shadow: 0 0 40px rgba(116, 255, 179, 0.8), 0 0 80px rgba(116, 255, 179, 0.4);
+                filter: drop-shadow(0 0 40px rgba(116, 255, 179, 0.5));
+            }
         }
 
-        .nav-buttons {
+        .logo-subtitle {
+            font-size: 1rem;
+            color: rgba(116, 255, 179, 0.7);
+            letter-spacing: 0.3rem;
+            font-weight: 300;
+        }
+
+        /* منوی ناوبری */
+        .navbar {
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 1rem;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
         }
 
-        .btn-outline {
-            padding: 0.8rem 1.5rem;
-            background: transparent;
-            border: 2px solid #74FFB3;
-            color: #74FFB3;
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(116, 255, 179, 0.05);
+            border: 2px solid rgba(116, 255, 179, 0.2);
             border-radius: 50px;
-            font-family: 'Vazirmatn', sans-serif;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .btn-outline:hover {
-            background: #74FFB3;
-            color: #101049;
-            box-shadow: 0 0 30px rgba(116, 255, 179, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(116, 255, 179, 0.1);
-            border: 1px solid rgba(116, 255, 179, 0.3);
-            border-radius: 50px;
-            color: #74FFB3;
-            margin-bottom: 2rem;
-            font-weight: 500;
-            animation: slideInDown 1s ease;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #74FFB3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: slideInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 3rem;
-            animation: slideInUp 1s ease 0.2s both;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: #74FFB3;
-            color: #101049;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: slideInUp 1s ease 0.4s both;
             position: relative;
             overflow: hidden;
         }
 
-        .cta-button::before {
+        .nav-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(116, 255, 179, 0.1), transparent);
             transition: left 0.5s ease;
         }
 
-        .cta-button:hover {
+        .nav-item:hover {
+            background: #74FFB3;
+            color: #101049;
+            border-color: #74FFB3;
+            box-shadow: 0 10px 30px rgba(116, 255, 179, 0.4);
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(116, 255, 179, 0.3);
         }
 
-        .cta-button:hover::before {
+        .nav-item:hover::before {
             left: 100%;
         }
 
-        /* Features Grid */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(116, 255, 179, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        .feature-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .feature-card:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
+        .nav-item.active {
+            background: #74FFB3;
+            color: #101049;
             border-color: #74FFB3;
-            box-shadow: 0 20px 40px rgba(116, 255, 179, 0.2);
+            box-shadow: 0 10px 30px rgba(116, 255, 179, 0.4);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* آیکون‌های کاستوم SVG */
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            transition: all 0.3s ease;
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #74FFB3;
+        .nav-item:hover .nav-icon {
+            transform: scale(1.2);
         }
 
-        .feature-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #74FFB3;
+        .nav-icon svg {
+            width: 100%;
+            height: 100%;
         }
 
-        .feature-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        /* محتوای صفحه */
+        .content {
+            text-align: center;
             padding: 4rem 0;
-            text-align: center;
+            animation: fadeIn 1s ease;
         }
 
-        .stat-item {
-            padding: 2rem;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #74FFB3;
-            margin-bottom: 0.5rem;
+        .welcome-text {
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 3rem;
         }
 
-        .stat-label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.1rem;
+        /* خط جداکننده */
+        .divider {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #74FFB3, transparent);
+            margin: 2rem auto;
+            border-radius: 10px;
         }
 
-        /* Testimonial */
-        .testimonial {
-            background: rgba(116, 255, 179, 0.05);
-            border: 1px solid rgba(116, 255, 179, 0.2);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 4rem 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .quote-mark {
-            font-size: 5rem;
-            color: #74FFB3;
-            opacity: 0.3;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-        }
-
-        .testimonial-text {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .testimonial-author {
-            color: #74FFB3;
-            font-weight: 700;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 2px solid rgba(116, 255, 179, 0.2);
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .footer a {
-            color: #74FFB3;
-            text-decoration: none;
-        }
-
-        /* Responsive */
+        /* ریسپانسیو */
         @media (max-width: 768px) {
-            .hero-title {
+            .logo {
                 font-size: 2.5rem;
+                letter-spacing: 0.3rem;
             }
             
-            .header {
+            .navbar {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.8rem;
             }
             
-            .nav-buttons {
-                flex-direction: column;
-                align-items: center;
+            .nav-item {
+                width: 100%;
+                justify-content: center;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
             
-            .features {
-                grid-template-columns: 1fr;
+            .welcome-text {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- بکگراند انیمیشنی -->
     <div class="animated-bg"></div>
     <div class="orbs">
         <div class="orb orb-1"></div>
@@ -416,77 +280,75 @@
     </div>
 
     <div class="container">
-        <!-- Header -->
+        <!-- هدر با لوگو -->
         <header class="header">
-            <div class="logo">naghos.ir</div>
-            <div class="nav-buttons">
-                <a href="#" class="btn-outline">ورود</a>
-                <a href="#" class="btn-outline">ثبت نام</a>
-            </div>
+            <div class="logo">NAGHOS.IR</div>
+            <div class="logo-subtitle">✦ NAGHOS OFFICIAL ✦</div>
         </header>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-badge">🚀 نسخه ویژه ۲۰۲۶</div>
-            <h1 class="hero-title">آینده دیجیتال<br>از امروز شروع میشود</h1>
-            <p class="hero-subtitle">با naghos.ir تحولی شگرف در کسب و کار آنلاین خود ایجاد کنید</p>
-            <a href="#" class="cta-button">شروع رایگان 🎯</a>
-        </section>
+        <!-- خط جداکننده -->
+        <div class="divider"></div>
 
-        <!-- Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">+۵۰K</div>
-                <div class="stat-label">کاربر فعال</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">۹۹٪</div>
-                <div class="stat-label">رضایت کاربران</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">۲۴/۷</div>
-                <div class="stat-label">پشتیبانی آنلاین</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">+۱۰۰</div>
-                <div class="stat-label">امکانات ویژه</div>
+        <!-- منوی ناوبری با آیکون‌های کاستوم -->
+        <nav class="navbar">
+            <!-- خانه -->
+            <a href="#" class="nav-item active">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </span>
+                خانه
+            </a>
+
+            <!-- تبلیغات -->
+            <a href="#" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                        <line x1="8" y1="16" x2="12" y2="16"></line>
+                    </svg>
+                </span>
+                تبلیغات
+            </a>
+
+            <!-- طراحی -->
+            <a href="#" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        <path d="M2 12h20"></path>
+                    </svg>
+                </span>
+                طراحی
+            </a>
+
+            <!-- آرشیو -->
+            <a href="#" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 8v13H3V8"></path>
+                        <path d="M1 3h22v5H1z"></path>
+                        <path d="M10 12h4"></path>
+                    </svg>
+                </span>
+                آرشیو
+            </a>
+        </nav>
+
+        <!-- خط جداکننده -->
+        <div class="divider"></div>
+
+        <!-- محتوای خوش‌آمدگویی -->
+        <div class="content">
+            <div class="welcome-text">
+                ✨ به NAGHOS خوش آمدید ✨
             </div>
         </div>
-
-        <!-- Features -->
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">سرعت فوق‌العاده</h3>
-                <p class="feature-description">با تکنولوژی پیشرفته، تجربه‌ای سریع و بدون تأخیر را برای کاربران خود فراهم کنید</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">امنیت پیشرفته</h3>
-                <p class="feature-description">حفاظت کامل از داده‌های شما با رمزنگاری نظامی و پروتکل‌های امنیتی</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3 class="feature-title">طراحی مدرن</h3>
-                <p class="feature-description">رابط کاربری زیبا و کاربرپسند با قابلیت شخصی‌سازی کامل</p>
-            </div>
-        </section>
-
-        <!-- Testimonial -->
-        <div class="testimonial">
-            <div class="quote-mark">"</div>
-            <p class="testimonial-text">
-                naghos.ir بهترین پلتفرمی بود که تا حالا استفاده کردم. سرعت، امنیت و طراحی عالی داره.
-                واقعاً کسب و کارم رو متحول کرد!
-            </p>
-            <div class="testimonial-author">— علی محمدی، مدیرعامل استارتاپ ایرانی</div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>© ۲۰۲۶ تمامی حقوق محفوظ است | <a href="#">naghos.ir</a></p>
-            <p style="margin-top: 0.5rem;">ساخته شده با ❤️ توسط تیم naghos</p>
-        </footer>
     </div>
 </body>
 </html>
