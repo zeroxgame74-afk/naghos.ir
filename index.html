@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ناقوس | پیشرو در تبلیغات نوین</title>
-    <!-- فونت وزیر (بولد پیش‌فرض برای تمام متن‌ها) -->
+    <!-- فونت وزیر (بولد کامل برای تمام متن‌ها) -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome 6 (آیکون‌های کاستوم و حرفه‌ای) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -17,14 +17,17 @@
 
         body {
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 700; /* bold برای همه متن‌ها */
+            font-weight: 700;
             background: radial-gradient(circle at 10% 20%, #071a2b, #010a14);
             color: #eaf4ff;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* اسکرول سفارشی با تم فیروزه‌ای */
+        p, h1, h2, h3, h4, a, span, div, button, li {
+            font-weight: 700;
+        }
+
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -40,14 +43,12 @@
             background: #2cd4db;
         }
 
-        /* کانتینر اصلی با حداکثر عرض و مرکزچین کامل */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* هدر / نوار ناوبری - کاملاً وسط‌چین شده */
         .navbar {
             display: flex;
             justify-content: center;
@@ -65,12 +66,17 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         .logo-icon {
             font-size: 2.5rem;
             color: #2cd4db;
             filter: drop-shadow(0 0 6px #0fa9b0);
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         .site-title {
             font-size: 1.9rem;
@@ -80,9 +86,10 @@
             background-clip: text;
             color: transparent;
             font-weight: 800;
+            line-height: 1.2;
         }
         .site-domain {
-            font-size: 1rem;
+            font-size: 0.9rem;
             background: #0a2f3b;
             padding: 4px 12px;
             border-radius: 40px;
@@ -95,13 +102,14 @@
             display: flex;
             gap: 28px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         .nav-links a {
             text-decoration: none;
             color: #ddf4ff;
             font-weight: 700;
             transition: 0.2s;
-            font-size: 1.05rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -115,7 +123,6 @@
             transform: translateY(-2px);
         }
 
-        /* بخش قهرمان Hero - کاملاً مرکزی */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -151,6 +158,7 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            font-weight: 800;
         }
         .hero-content p {
             font-size: 1.2rem;
@@ -159,6 +167,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 700;
         }
         .btn-group {
             display: flex;
@@ -220,7 +229,6 @@
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
         }
 
-        /* ویژگی‌های تبلیغاتی (مرکز چین شده) */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -251,9 +259,12 @@
         .feature-card h3 {
             font-size: 1.7rem;
             margin-bottom: 12px;
+            font-weight: 800;
+        }
+        .feature-card p {
+            font-weight: 700;
         }
 
-        /* بخش آمار و اعداد جذاب وسط چین */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -283,9 +294,9 @@
             font-size: 1rem;
             letter-spacing: 1px;
             margin-top: 8px;
+            font-weight: 700;
         }
 
-        /* نمونه کارها وسط چین */
         .portfolio {
             margin: 70px 0;
             text-align: center;
@@ -294,6 +305,7 @@
             text-align: center;
             font-size: 2.2rem;
             margin-bottom: 45px;
+            font-weight: 800;
         }
         .section-title span {
             background: linear-gradient(120deg, #9decef, #3fcfd8);
@@ -330,9 +342,12 @@
         .camp-card h4 {
             font-size: 1.6rem;
             margin-bottom: 12px;
+            font-weight: 800;
+        }
+        .camp-card p {
+            font-weight: 700;
         }
 
-        /* CTA بزرگ تبلیغاتی وسط چین */
         .cta {
             background: linear-gradient(115deg, #0a3540, #031f2b);
             border-radius: 48px;
@@ -344,6 +359,10 @@
         .cta h2 {
             font-size: 2rem;
             margin-bottom: 16px;
+            font-weight: 800;
+        }
+        .cta p {
+            font-weight: 700;
         }
         .cta .btn-primary {
             margin-top: 20px;
@@ -351,7 +370,44 @@
             padding: 16px 36px;
         }
 
-        /* فوتر وسط چین */
+        /* بخش مدیر و سازنده سایت */
+        .team-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 50px 0 30px;
+        }
+        .team-card {
+            background: rgba(7, 26, 43, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 28px;
+            padding: 25px 35px;
+            text-align: center;
+            border: 1px solid rgba(15, 169, 176, 0.5);
+            transition: 0.2s;
+            min-width: 230px;
+        }
+        .team-card:hover {
+            border-color: #2cd4db;
+            transform: translateY(-5px);
+        }
+        .team-icon {
+            font-size: 2.5rem;
+            color: #2cd4db;
+            margin-bottom: 15px;
+        }
+        .team-role {
+            font-size: 0.9rem;
+            color: #7fe6ec;
+            margin-bottom: 5px;
+        }
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: white;
+        }
+
         footer {
             border-top: 1px solid rgba(44, 212, 219, 0.3);
             padding: 40px 0 30px;
@@ -372,6 +428,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
+            font-weight: 700;
         }
         .social-icons {
             display: flex;
@@ -394,9 +451,9 @@
             width: 100%;
             font-size: 0.85rem;
             opacity: 0.7;
+            font-weight: 700;
         }
 
-        /* ریسپانسیو برای موبایل */
         @media (max-width: 800px) {
             .navbar {
                 flex-direction: column;
@@ -418,6 +475,15 @@
             .cta h2 {
                 font-size: 1.6rem;
             }
+            .logo-area {
+                flex-wrap: nowrap;
+            }
+            .logo-text {
+                align-items: center;
+            }
+            .team-section {
+                gap: 20px;
+            }
         }
         @media (max-width: 550px) {
             .btn-group {
@@ -427,16 +493,29 @@
             .btn-primary, .btn-outline {
                 justify-content: center;
             }
+            .logo-area {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text {
+                align-items: center;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <!-- هدر با لوگو و منو (همه چیز در مرکز) -->
+    <!-- هدر با لوگو و منو - کاملاً وسط -->
     <div class="navbar">
         <div class="logo-area">
             <i class="fas fa-bell logo-icon"></i>
-            <div>
+            <div class="logo-text">
                 <div class="site-title">ناقوس</div>
                 <div class="site-domain">naghos.ir | طنین تبلیغات مدرن</div>
             </div>
@@ -445,18 +524,19 @@
             <a href="#"><i class="fas fa-home"></i> خانه</a>
             <a href="#"><i class="fas fa-chart-line"></i> خدمات</a>
             <a href="#"><i class="fas fa-ad"></i> کمپین‌ها</a>
+            <a href="#"><i class="fas fa-users"></i> گروه ناقوس</a>
             <a href="#"><i class="fas fa-headset"></i> تماس</a>
         </div>
     </div>
 
-    <!-- بخش Hero اصلی با پیام تبلیغاتی مرکزی -->
+    <!-- بخش Hero اصلی -->
     <div class="hero">
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-crown"></i>  آژانس تبلیغاتی پیشرو
             </div>
-            <h1>تبلیغات هوشمند <br> با صدای <span style="color:#2cd4db;">ناقوس</span></h1>
-            <p>با قدرت رسانه‌ای نوین و کمپین‌های هدفمند، برند خود را به قله‌های موفقیت برسانید. طراحی تخصصی، بازدهی حداکثری.</p>
+            <h1>تبلیغات هدفمند <br> با صدای <span style="color:#2cd4db;">ناقوس</span></h1>
+            <p>برند خود را با قدرت رسانه‌ای نوین و کمپین‌های خلاقانه به اوج برسانید. طراحی اختصاصی، بازدهی حداکثری.</p>
             <div class="btn-group">
                 <button class="btn-primary"><i class="fas fa-bullhorn"></i> شروع کمپین فوری</button>
                 <button class="btn-outline"><i class="fas fa-video"></i> مشاهده نمونه کارها</button>
@@ -467,31 +547,31 @@
         </div>
     </div>
 
-    <!-- ویژگی‌های برتر با آیکون‌های سفارشی (وسط) -->
+    <!-- ویژگی‌های تبلیغاتی -->
     <div class="features">
         <div class="feature-card">
             <i class="fas fa-chart-simple feature-icon"></i>
-            <h3>داده محور</h3>
-            <p>آنالیز لحظه‌ای و بهینه‌سازی کمپین‌ها با هوش مصنوعی ناقوس</p>
+            <h3>تبلیغات حرفه‌ای</h3>
+            <p>طراحی کمپین‌های اختصاصی متناسب با برند شما</p>
         </div>
         <div class="feature-card">
             <i class="fas fa-glasses feature-icon"></i>
-            <h3>تأثیرگذاری خیره‌کننده</h3>
-            <p>طراحی گرافیک و ویدیوهای منحصربفرد با بازدهی تا ۳ برابر</p>
+            <h3>تأثیرگذاری بالا</h3>
+            <p>محتوای خلاقانه و جذاب برای جذب مخاطب هدف</p>
         </div>
         <div class="feature-card">
             <i class="fas fa-bullseye feature-icon"></i>
             <h3>هدفگذاری دقیق</h3>
-            <p>دسترسی به مخاطب خاص با تکنولوژی لوکیشن و علاقمندی‌ها</p>
+            <p>دسترسی به مخاطبان واقعی و افزایش نرخ بازدهی</p>
         </div>
         <div class="feature-card">
             <i class="fas fa-rocket feature-icon"></i>
             <h3>رشد سریع برند</h3>
-            <p>از استارتاپ‌ها تا برندهای بزرگ، رشد تصاعدی در کمپین‌ها</p>
+            <p>از استارتاپ‌ها تا برندهای بزرگ، نتایج قابل توجه</p>
         </div>
     </div>
 
-    <!-- آمار و ارقام اثربخشی (مرکز) -->
+    <!-- آمار و ارقام -->
     <div class="stats">
         <div class="stat-item">
             <div class="stat-number"><i class="fas fa-user-plus"></i> +۲۳۰</div>
@@ -511,7 +591,7 @@
         </div>
     </div>
 
-    <!-- بخش کمپین‌های ویژه و پلتفرم‌ها -->
+    <!-- پلتفرم‌های تبلیغاتی -->
     <div class="portfolio">
         <div class="section-title"><span>⚡ پلتفرم‌های تبلیغاتی ناقوس ⚡</span></div>
         <div class="campaign-grid">
@@ -523,7 +603,7 @@
             <div class="camp-card">
                 <i class="fab fa-instagram"></i>
                 <h4>شبکه‌های اجتماعی</h4>
-                <p>اینستاگرام، تلگرام، لینکدین | استراتژی تولید محتوای وایرال</p>
+                <p>اینستاگرام، تلگرام، لینکدین | تولید محتوای وایرال</p>
             </div>
             <div class="camp-card">
                 <i class="fas fa-tv"></i>
@@ -538,7 +618,21 @@
         </div>
     </div>
 
-    <!-- Call To Action بزرگ با آیکون جذاب -->
+    <!-- بخش مدیر مجموعه و سازنده سایت (به ترتیب: اول مدیر، بعد سازنده) -->
+    <div class="team-section">
+        <div class="team-card">
+            <i class="fas fa-user-tie team-icon"></i>
+            <div class="team-role">مدیر مجموعه</div>
+            <div class="team-name">علی علیپور</div>
+        </div>
+        <div class="team-card">
+            <i class="fas fa-laptop-code team-icon"></i>
+            <div class="team-role">سازنده سایت</div>
+            <div class="team-name">محمد حسین صنعتی</div>
+        </div>
+    </div>
+
+    <!-- CTA بزرگ تبلیغاتی -->
     <div class="cta">
         <i class="fas fa-bell" style="font-size: 3rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
         <h2>صدای برندتان را به گوش جهان برسانید!</h2>
@@ -546,7 +640,7 @@
         <button class="btn-primary" style="background: linear-gradient(95deg, #128f97, #18bac2);"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</button>
     </div>
 
-    <!-- فوتر با آیکون‌های اختصاصی و اطلاعات تماس - همه در مرکز -->
+    <!-- فوتر با آدرس بیرجند و شماره جدید -->
     <footer>
         <div class="footer-col">
             <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
@@ -554,19 +648,19 @@
                 <span style="font-weight: 800; font-size: 1.5rem;">ناقوس</span>
                 <span style="background:#0b5f68; padding: 2px 12px; border-radius: 50px; font-size:0.8rem;">naghos.ir</span>
             </div>
-            <p><i class="fas fa-map-pin"></i> تهران، خیابان ولیعصر، برج ناقوس</p>
-            <p><i class="fas fa-phone-alt"></i> ۰۲۱-۹۱۰۰۸۶۴۲</p>
+            <p><i class="fas fa-map-pin"></i> بیرجند، ساختمان ناقوس، پلاک ۱۲</p>
+            <p><i class="fas fa-phone-alt"></i> +98 915 771 1094</p>
             <p><i class="fas fa-envelope"></i> hello@naghos.ir</p>
         </div>
         <div class="footer-col">
-            <h4 style="margin-bottom: 12px;"><i class="fas fa-link"></i> دسترسی سریع</h4>
+            <h4 style="margin-bottom: 12px; font-weight: 800;"><i class="fas fa-link"></i> دسترسی سریع</h4>
             <p><i class="fas fa-angle-left"></i> خدمات تبلیغاتی</p>
             <p><i class="fas fa-angle-left"></i> نمونه کمپین‌ها</p>
             <p><i class="fas fa-angle-left"></i> وبلاگ تخصصی</p>
             <p><i class="fas fa-angle-left"></i> سوالات متداول</p>
         </div>
         <div class="footer-col">
-            <h4 style="margin-bottom: 12px;"><i class="fas fa-share-alt"></i> در شبکه‌های اجتماعی</h4>
+            <h4 style="margin-bottom: 12px; font-weight: 800;"><i class="fas fa-share-alt"></i> در شبکه‌های اجتماعی</h4>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-telegram"></i></a>
@@ -582,7 +676,6 @@
     </footer>
 </div>
 
-<!-- اسکریپت تعاملی -->
 <script>
     (function(){
         const btns = document.querySelectorAll('.btn-primary, .btn-outline');
