@@ -40,27 +40,30 @@
             background: #2cd4db;
         }
 
-        /* کانتینر اصلی با حاشیه نرم */
+        /* کانتینر اصلی با حداکثر عرض و مرکزچین کامل */
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* header / نوار ناوبری + لوگو */
+        /* هدر / نوار ناوبری - کاملاً وسط‌چین شده */
         .navbar {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            padding: 24px 0 16px 0;
+            gap: 40px;
+            padding: 30px 0 20px 0;
             border-bottom: 2px solid rgba(15, 169, 176, 0.3);
             margin-bottom: 40px;
+            text-align: center;
         }
 
         .logo-area {
             display: flex;
-            align-items: baseline;
+            align-items: center;
+            justify-content: center;
             gap: 12px;
             flex-wrap: wrap;
         }
@@ -79,7 +82,7 @@
             font-weight: 800;
         }
         .site-domain {
-            font-size: 1.2rem;
+            font-size: 1rem;
             background: #0a2f3b;
             padding: 4px 12px;
             border-radius: 40px;
@@ -91,6 +94,7 @@
         .nav-links {
             display: flex;
             gap: 28px;
+            justify-content: center;
         }
         .nav-links a {
             text-decoration: none;
@@ -111,30 +115,36 @@
             transform: translateY(-2px);
         }
 
-        /* بخش قهرمان Hero (تبلیغاتی چشمگیر) */
+        /* بخش قهرمان Hero - کاملاً مرکزی */
         .hero {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
             margin: 50px 0 70px;
+            text-align: center;
         }
         .hero-content {
             flex: 1;
+            min-width: 280px;
+            text-align: center;
         }
         .hero-badge {
             background: rgba(15, 169, 176, 0.2);
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 6px 18px;
             border-radius: 30px;
             font-size: 0.85rem;
             border-right: 4px solid #2cd4db;
             margin-bottom: 20px;
             font-weight: 800;
+            justify-content: center;
         }
         .hero-content h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             line-height: 1.2;
             margin-bottom: 20px;
             background: linear-gradient(120deg, #fff, #7fe6ec);
@@ -146,11 +156,14 @@
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
-            max-width: 550px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .btn-group {
             display: flex;
             gap: 18px;
+            justify-content: center;
             flex-wrap: wrap;
         }
         .btn-primary {
@@ -202,17 +215,18 @@
             backdrop-filter: blur(2px);
         }
         .hero-image i {
-            font-size: 14rem;
+            font-size: 12rem;
             color: #2cd4db;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
         }
 
-        /* ویژگی‌های تبلیغاتی (آیکون‌های کاستوم) */
+        /* ویژگی‌های تبلیغاتی (مرکز چین شده) */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
             margin: 70px 0;
+            text-align: center;
         }
         .feature-card {
             background: rgba(7, 26, 43, 0.7);
@@ -238,26 +252,23 @@
             font-size: 1.7rem;
             margin-bottom: 12px;
         }
-        .feature-card p {
-            font-weight: 700;
-            opacity: 0.85;
-        }
 
-        /* بخش آمار و اعداد جذاب */
+        /* بخش آمار و اعداد جذاب وسط چین */
         .stats {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 25px;
+            justify-content: center;
+            gap: 40px;
             background: linear-gradient(145deg, #03212e, #03131f);
             border-radius: 60px;
             padding: 45px 35px;
             margin: 60px 0;
             border: 1px solid #0c6a70;
+            text-align: center;
         }
         .stat-item {
             text-align: center;
-            flex: 1;
+            min-width: 160px;
         }
         .stat-number {
             font-size: 2.7rem;
@@ -266,7 +277,7 @@
             display: flex;
             justify-content: center;
             align-items: baseline;
-            gap: 5px;
+            gap: 8px;
         }
         .stat-label {
             font-size: 1rem;
@@ -274,17 +285,15 @@
             margin-top: 8px;
         }
 
-        /* نمونه کارها / پلتفرم‌های تبلیغاتی */
+        /* نمونه کارها وسط چین */
         .portfolio {
             margin: 70px 0;
+            text-align: center;
         }
         .section-title {
             text-align: center;
             font-size: 2.2rem;
             margin-bottom: 45px;
-            position: relative;
-            display: inline-block;
-            width: 100%;
         }
         .section-title span {
             background: linear-gradient(120deg, #9decef, #3fcfd8);
@@ -296,8 +305,9 @@
         }
         .campaign-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
+            justify-items: center;
         }
         .camp-card {
             background: #071e2c;
@@ -305,6 +315,8 @@
             padding: 28px;
             transition: 0.25s;
             border: 1px solid #1b6f78;
+            text-align: center;
+            width: 100%;
         }
         .camp-card i {
             font-size: 2.8rem;
@@ -320,7 +332,7 @@
             margin-bottom: 12px;
         }
 
-        /* CTA بزرگ تبلیغاتی */
+        /* CTA بزرگ تبلیغاتی وسط چین */
         .cta {
             background: linear-gradient(115deg, #0a3540, #031f2b);
             border-radius: 48px;
@@ -330,7 +342,7 @@
             border: 1px solid #2cd4db;
         }
         .cta h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 16px;
         }
         .cta .btn-primary {
@@ -339,22 +351,32 @@
             padding: 16px 36px;
         }
 
-        /* فوتر */
+        /* فوتر وسط چین */
         footer {
             border-top: 1px solid rgba(44, 212, 219, 0.3);
             padding: 40px 0 30px;
             margin-top: 40px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 25px;
+            justify-content: center;
+            gap: 50px;
+            text-align: center;
+        }
+        .footer-col {
+            text-align: center;
+            min-width: 200px;
         }
         .footer-col p {
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         .social-icons {
             display: flex;
             gap: 22px;
+            justify-content: center;
             margin-top: 15px;
         }
         .social-icons a {
@@ -374,25 +396,27 @@
             opacity: 0.7;
         }
 
-        /* ریسپانسیو */
+        /* ریسپانسیو برای موبایل */
         @media (max-width: 800px) {
             .navbar {
                 flex-direction: column;
-                gap: 18px;
+                gap: 20px;
             }
             .hero-content h1 {
-                font-size: 2.4rem;
+                font-size: 2.2rem;
             }
             .hero-image i {
-                font-size: 9rem;
+                font-size: 8rem;
             }
             .stats {
                 flex-direction: column;
                 align-items: center;
-                text-align: center;
             }
             .section-title {
                 font-size: 1.8rem;
+            }
+            .cta h2 {
+                font-size: 1.6rem;
             }
         }
         @media (max-width: 550px) {
@@ -408,7 +432,7 @@
 </head>
 <body>
 <div class="container">
-    <!-- هدر با لوگو و منو -->
+    <!-- هدر با لوگو و منو (همه چیز در مرکز) -->
     <div class="navbar">
         <div class="logo-area">
             <i class="fas fa-bell logo-icon"></i>
@@ -425,7 +449,7 @@
         </div>
     </div>
 
-    <!-- بخش Hero اصلی با پیام تبلیغاتی -->
+    <!-- بخش Hero اصلی با پیام تبلیغاتی مرکزی -->
     <div class="hero">
         <div class="hero-content">
             <div class="hero-badge">
@@ -440,11 +464,10 @@
         </div>
         <div class="hero-image">
             <i class="fas fa-chalkboard-user"></i>
-            <!-- آیکون کاستوم تبلیغاتی -->
         </div>
     </div>
 
-    <!-- ویژگی‌های برتر با آیکون‌های سفارشی -->
+    <!-- ویژگی‌های برتر با آیکون‌های سفارشی (وسط) -->
     <div class="features">
         <div class="feature-card">
             <i class="fas fa-chart-simple feature-icon"></i>
@@ -468,7 +491,7 @@
         </div>
     </div>
 
-    <!-- آمار و ارقام اثربخشی -->
+    <!-- آمار و ارقام اثربخشی (مرکز) -->
     <div class="stats">
         <div class="stat-item">
             <div class="stat-number"><i class="fas fa-user-plus"></i> +۲۳۰</div>
@@ -517,16 +540,16 @@
 
     <!-- Call To Action بزرگ با آیکون جذاب -->
     <div class="cta">
-        <i class="fas fa-bell" style="font-size: 3.2rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
+        <i class="fas fa-bell" style="font-size: 3rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
         <h2>صدای برندتان را به گوش جهان برسانید!</h2>
         <p>همین امروز با تیم ناقوس مشاوره رایگان دریافت کنید و شگفت‌زده شوید.</p>
         <button class="btn-primary" style="background: linear-gradient(95deg, #128f97, #18bac2);"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</button>
     </div>
 
-    <!-- فوتر با آیکون‌های اختصاصی و اطلاعات تماس -->
+    <!-- فوتر با آیکون‌های اختصاصی و اطلاعات تماس - همه در مرکز -->
     <footer>
         <div class="footer-col">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
                 <i class="fas fa-bell" style="font-size: 2rem; color:#2cd4db;"></i>
                 <span style="font-weight: 800; font-size: 1.5rem;">ناقوس</span>
                 <span style="background:#0b5f68; padding: 2px 12px; border-radius: 50px; font-size:0.8rem;">naghos.ir</span>
@@ -559,10 +582,9 @@
     </footer>
 </div>
 
-<!-- یک اسکریپت ساده برای تعامل بیشتر (کاملاً غیراجباری ولی شیک) -->
+<!-- اسکریپت تعاملی -->
 <script>
     (function(){
-        // فقط برای لذت کاربردی جزئی: کلیک روی دکمه‌های اصلی می‌تواند alert نمایش دهد
         const btns = document.querySelectorAll('.btn-primary, .btn-outline');
         btns.forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -578,7 +600,6 @@
             });
         });
 
-        // جلوه اضافی: لینک‌های منو در حال حاضر پیام می‌دهند
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -589,4 +610,4 @@
     })();
 </script>
 </body>
-                                </html>
+    </html>
