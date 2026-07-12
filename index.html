@@ -117,7 +117,7 @@
             width: 60%;
         }
 
-        /* ===== اسلایدر با سایز اصلی عکس ===== */
+        /* ===== اسلایدر بدون دکمه ===== */
         .slider-section {
             margin: 30px 0 60px;
             text-align: center;
@@ -153,33 +153,6 @@
             object-fit: contain;
             display: block;
             border-radius: 20px;
-        }
-        /* دکمه‌های اسلایدر */
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            color: #2cd4db;
-            border: 2px solid #2cd4db;
-            padding: 14px 18px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: 0.3s;
-            z-index: 10;
-        }
-        .slider-btn:hover {
-            background: #2cd4db;
-            color: #071a2b;
-            transform: translateY(-50%) scale(1.1);
-        }
-        .slider-btn.prev {
-            left: 15px;
-        }
-        .slider-btn.next {
-            right: 15px;
         }
         /* نقطه‌های پایین اسلایدر */
         .slider-dots {
@@ -626,7 +599,6 @@
             .page-content { padding: 30px 20px; }
             .nav-links { gap: 12px; }
             .nav-item { font-size: 0.85rem; padding: 4px 6px; }
-            .slider-btn { padding: 10px 14px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -668,7 +640,7 @@
             </div>
         </div>
 
-        <!-- ===== اسلایدر با سایز اصلی عکس (9648×2080) ===== -->
+        <!-- ===== اسلایدر بدون دکمه ===== -->
         <div class="slider-section">
             <div class="slider-container">
                 <div class="slider-wrapper" id="sliderWrapper">
@@ -682,8 +654,6 @@
                     </div>
                     -->
                 </div>
-                <button class="slider-btn prev" onclick="prevSlide()"><i class="fas fa-chevron-right"></i></button>
-                <button class="slider-btn next" onclick="nextSlide()"><i class="fas fa-chevron-left"></i></button>
             </div>
             <div class="slider-dots" id="sliderDots">
                 <div class="slider-dot active" onclick="goToSlide(0)"></div>
@@ -876,20 +846,6 @@
         });
     }
 
-    function nextSlide() {
-        if (totalSlides === 0) return;
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-        resetAutoSlide();
-    }
-
-    function prevSlide() {
-        if (totalSlides === 0) return;
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-        resetAutoSlide();
-    }
-
     function goToSlide(index) {
         if (index < 0 || index >= totalSlides) return;
         currentSlide = index;
@@ -900,12 +856,18 @@
     function resetAutoSlide() {
         clearInterval(autoSlideInterval);
         if (totalSlides > 1) {
-            autoSlideInterval = setInterval(nextSlide, 5000);
+            autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 5000);
         }
     }
 
     if (totalSlides > 1) {
-        autoSlideInterval = setInterval(nextSlide, 5000);
+        autoSlideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
     }
 
     // ===== نمایش صفحات =====
@@ -975,4 +937,4 @@
     document.getElementById('mainPage').style.display = 'block';
 </script>
 </body>
-                                            </html>
+</html>
