@@ -117,7 +117,7 @@
             width: 60%;
         }
 
-        /* ===== اسلایدر ===== */
+        /* ===== اسلایدر با سایز 9648×2080 ===== */
         .slider-section {
             margin: 30px 0 60px;
             text-align: center;
@@ -125,7 +125,7 @@
         .slider-container {
             position: relative;
             width: 100%;
-            max-width: 1000px;
+            max-width: 9648px; /* سایز اصلی عکس */
             margin: 0 auto;
             border-radius: 30px;
             overflow: hidden;
@@ -149,7 +149,7 @@
             width: 100%;
             height: auto;
             max-width: 100%;
-            max-height: 600px;
+            max-height: 2080px; /* سایز اصلی عکس */
             object-fit: contain;
             display: block;
             border-radius: 20px;
@@ -641,7 +641,7 @@
             </div>
         </div>
 
-        <!-- ===== اسلایدر با ۲ عکس ===== -->
+        <!-- ===== اسلایدر با سایز 9648×2080 ===== -->
         <div class="slider-section">
             <div class="slider-container">
                 <div class="slider-wrapper" id="sliderWrapper">
@@ -863,14 +863,12 @@
         }
     }
 
-    // رویداد کلیک روی نقطه‌ها
     dots.forEach((dot, index) => {
         dot.addEventListener('click', function() {
             goToSlide(index);
         });
     });
 
-    // شروع اتواسلایدر
     if (totalSlides > 1) {
         autoSlideInterval = setInterval(nextSlide, 5000);
     }
@@ -942,4 +940,4 @@
     document.getElementById('mainPage').style.display = 'block';
 </script>
 </body>
-                                                                                                                                                              </html>
+</html>
