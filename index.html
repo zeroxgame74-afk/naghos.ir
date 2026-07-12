@@ -13,42 +13,26 @@
             box-sizing: border-box;
         }
 
-        body {
+        /* همه چیز وزیر متن بُلد */
+        body, html, p, h1, h2, h3, h4, h5, a, span, div, button, li, input, label, textarea, select, option, .stat-number, .stat-label, .copyright, .footer-col p, .team-role, .team-name, .soon-popup, .modal-content p, .modal-content h3, .form-group label, .close-modal, .page-content h2, .page-content p, .page-content h3 {
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 700;
+            font-weight: 700 !important;
+        }
+
+        body {
             background: radial-gradient(circle at 10% 20%, #071a2b, #010a14);
             color: #eaf4ff;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* همه چیز بولد */
-        body, p, h1, h2, h3, h4, a, span, div, button, li, input, label, textarea, .stat-number, .stat-label, .copyright, .footer-col p, .team-role, .team-name, .soon-badge, .modal-content p, .modal-content h3, .form-group label, .close-modal {
-            font-weight: 700;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #041e2c; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #0fa9b0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2cd4db; }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #041e2c;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #0fa9b0;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2cd4db;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* نوار ناوبری */
         .navbar {
             display: flex;
             justify-content: center;
@@ -99,7 +83,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            position: relative;
+            cursor: pointer;
         }
         .nav-links a i {
             font-size: 1.2rem;
@@ -108,38 +92,6 @@
         .nav-links a:hover {
             color: #2cd4db;
             transform: translateY(-2px);
-        }
-
-        /* باکس "به زودی" برای منوهای خالی */
-        .soon-popup {
-            display: none;
-            position: absolute;
-            top: 35px;
-            right: -20px;
-            background: #0a2f3b;
-            border: 1px solid #2cd4db;
-            border-radius: 16px;
-            padding: 12px 18px;
-            width: 200px;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        .soon-popup i {
-            font-size: 1.5rem;
-            color: #2cd4db;
-            margin-bottom: 8px;
-            display: block;
-            text-align: center;
-        }
-        .soon-popup p {
-            font-size: 0.85rem;
-            color: #caf7fa;
-            text-align: center;
-            margin: 0;
-        }
-        .nav-links a:hover .soon-popup {
-            display: block;
         }
 
         .hero {
@@ -209,9 +161,7 @@
             gap: 12px;
             box-shadow: 0 8px 18px rgba(15, 169, 176, 0.3);
         }
-        .btn-primary i {
-            font-size: 1.2rem;
-        }
+        .btn-primary i { font-size: 1.2rem; }
         .btn-primary:hover {
             background: linear-gradient(95deg, #0e9aa3, #13c2ca);
             transform: scale(1.02);
@@ -293,10 +243,7 @@
             border: 1px solid #0c6a70;
             text-align: center;
         }
-        .stat-item {
-            text-align: center;
-            min-width: 160px;
-        }
+        .stat-item { text-align: center; min-width: 160px; }
         .stat-number {
             font-size: 2.7rem;
             font-weight: 900;
@@ -406,7 +353,50 @@
             font-weight: 800;
         }
 
-        /* مودال فرم ثبت اطلاعات */
+        /* صفحه‌های جداگانه برای هر تب */
+        .page-container {
+            display: none;
+            padding: 40px 0;
+            text-align: center;
+        }
+        .page-container.active {
+            display: block;
+        }
+        .page-content {
+            background: rgba(7, 26, 43, 0.6);
+            border-radius: 40px;
+            padding: 50px 30px;
+            border: 1px solid rgba(15, 169, 176, 0.3);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .page-content i {
+            font-size: 4rem;
+            color: #2cd4db;
+            margin-bottom: 20px;
+        }
+        .page-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #2cd4db;
+        }
+        .page-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .page-content .soon-badge {
+            background: rgba(44, 212, 219, 0.2);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 2px solid #2cd4db;
+            margin-top: 20px;
+            font-weight: 800;
+        }
+        .back-home {
+            margin-top: 25px;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -435,7 +425,6 @@
             left: 20px;
             top: 15px;
             font-size: 28px;
-            font-weight: bold;
             cursor: pointer;
             color: #2cd4db;
         }
@@ -451,7 +440,6 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 700;
         }
         .form-group input, .form-group select {
             width: 100%;
@@ -508,9 +496,7 @@
             font-size: 1.7rem;
             transition: 0.2s;
         }
-        .social-icons a:hover {
-            color: #2cd4db;
-        }
+        .social-icons a:hover { color: #2cd4db; }
         .copyright {
             text-align: center;
             padding: 20px 0 0;
@@ -519,122 +505,175 @@
             opacity: 0.7;
         }
 
+        /* مخفی کردن صفحات دیگه */
+        #mainPage.hidden { display: none; }
+
         @media (max-width: 800px) {
             .hero-content h1 { font-size: 2.2rem; }
             .hero-image i { font-size: 8rem; }
             .section-title { font-size: 1.8rem; }
+            .page-content { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div class="navbar">
-        <div class="logo-area">
-            <i class="fas fa-bell logo-icon"></i>
-            <div class="site-title">ناقوس</div>
-        </div>
-        <div class="nav-links">
-            <a href="#"><i class="fas fa-home"></i> خانه</a>
-            <a href="#"><i class="fas fa-chart-line"></i> خدمات
-                <div class="soon-popup"><i class="fas fa-clock"></i><p>به زودی! صفحه خدمات در حال آماده‌سازی با جدیدترین پکیج‌های تبلیغاتی</p></div>
-            </a>
-            <a href="#"><i class="fas fa-ad"></i> کمپین‌ها
-                <div class="soon-popup"><i class="fas fa-chart-simple"></i><p>به زودی! مشاهده کمپین‌های موفق و آنالیز تخصصی</p></div>
-            </a>
-            <a href="#"><i class="fas fa-users"></i> گروه ناقوس
-                <div class="soon-popup"><i class="fas fa-users-viewfinder"></i><p>به زودی! آشنایی با تیم حرفه‌ای ناقوس</p></div>
-            </a>
-            <a href="#"><i class="fas fa-headset"></i> تماس
-                <div class="soon-popup"><i class="fas fa-phone-volume"></i><p>به زودی! پشتیبانی ۲۴ ساعته و فرم ارتباط مستقیم</p></div>
-            </a>
-        </div>
-    </div>
 
-    <div class="hero">
-        <div class="hero-content">
-            <div class="hero-badge"><i class="fas fa-crown"></i> آژانس تبلیغاتی پیشرو</div>
-            <h1>تبلیغات هدفمند <br> با صدای <span style="color:#2cd4db;">ناقوس</span></h1>
-            <p>برند خود را با قدرت رسانه‌ای نوین و کمپین‌های خلاقانه به اوج برسانید.</p>
-            <div class="btn-group">
-                <button class="btn-primary"><i class="fas fa-bullhorn"></i> شروع کمپین فوری</button>
-                <button class="btn-outline"><i class="fas fa-video"></i> مشاهده نمونه کارها</button>
+    <!-- صفحه اصلی -->
+    <div id="mainPage">
+        <div class="navbar">
+            <div class="logo-area">
+                <i class="fas fa-bell logo-icon"></i>
+                <div class="site-title">ناقوس</div>
+            </div>
+            <div class="nav-links">
+                <a onclick="showPage('home')"><i class="fas fa-home"></i> خانه</a>
+                <a onclick="showPage('services')"><i class="fas fa-chart-line"></i> خدمات</a>
+                <a onclick="showPage('campaigns')"><i class="fas fa-ad"></i> کمپین‌ها</a>
+                <a onclick="showPage('portfolio')"><i class="fas fa-images"></i> نمونه کار</a>
+                <a onclick="showPage('team')"><i class="fas fa-users"></i> گروه ناقوس</a>
+                <a onclick="showPage('contact')"><i class="fas fa-headset"></i> تماس</a>
             </div>
         </div>
-        <div class="hero-image"><i class="fas fa-chalkboard-user"></i></div>
-    </div>
 
-    <div class="features">
-        <div class="feature-card"><i class="fas fa-chart-simple feature-icon"></i><h3>تبلیغات حرفه‌ای</h3><p>طراحی کمپین‌های اختصاصی متناسب با برند شما</p></div>
-        <div class="feature-card"><i class="fas fa-glasses feature-icon"></i><h3>تأثیرگذاری بالا</h3><p>محتوای خلاقانه و جذاب برای جذب مخاطب هدف</p></div>
-        <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>هدفگذاری دقیق</h3><p>دسترسی به مخاطبان واقعی و افزایش نرخ بازدهی</p></div>
-        <div class="feature-card"><i class="fas fa-rocket feature-icon"></i><h3>رشد سریع برند</h3><p>از استارتاپ‌ها تا برندهای بزرگ، نتایج قابل توجه</p></div>
-    </div>
-
-    <div class="stats">
-        <div class="stat-item"><div class="stat-number"><i class="fas fa-user-plus"></i> +۲۳۰</div><div class="stat-label">برندهای همکار</div></div>
-        <div class="stat-item"><div class="stat-number"><i class="fas fa-chart-line"></i> ۹۸٪</div><div class="stat-label">رضایت مشتریان</div></div>
-        <div class="stat-item"><div class="stat-number"><i class="fas fa-calendar-week"></i> ۱,۲۴۰+</div><div class="stat-label">کمپین موفق</div></div>
-        <div class="stat-item"><div class="stat-number"><i class="fas fa-trophy"></i> ۱۵</div><div class="stat-label">جایزه صنعت تبلیغات</div></div>
-    </div>
-
-    <div class="portfolio">
-        <div class="section-title"><span>⚡ پلتفرم‌های تبلیغاتی ناقوس ⚡</span></div>
-        <div class="campaign-grid">
-            <div class="camp-card"><i class="fab fa-google"></i><h4>Google Ads</h4><p>تبلیغات جستجو، نمایش و یوتیوب</p></div>
-            <div class="camp-card"><i class="fab fa-instagram"></i><h4>شبکه‌های اجتماعی</h4><p>اینستاگرام، تلگرام، لینکدین</p></div>
-            <div class="camp-card"><i class="fas fa-tv"></i><h4>تبلیغات دیجیتال اوت‌دور</h4><p>بیلبوردهای هوشمند و تبلیغات درون شهری</p></div>
-            <div class="camp-card"><i class="fas fa-podcast"></i><h4>پادکست و رادیو</h4><p>تبلیغات صوتی در پادکست‌های فارسی</p></div>
-        </div>
-    </div>
-
-    <div class="team-section">
-        <div class="team-card"><i class="fas fa-user-tie team-icon"></i><div class="team-role">مدیر مجموعه</div><div class="team-name">علی علیپور</div></div>
-        <div class="team-card"><i class="fas fa-laptop-code team-icon"></i><div class="team-role">سازنده سایت</div><div class="team-name">محمد حسین صنعتی</div></div>
-    </div>
-
-    <div class="cta" id="ctaButton">
-        <i class="fas fa-bell" style="font-size: 3rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
-        <h2>صدای برندتان را به گوش جهان برسانید!</h2>
-        <p>همین امروز با تیم ناقوس مشاوره رایگان دریافت کنید و شگفت‌زده شوید.</p>
-        <div class="btn-primary" style="display: inline-flex; background: linear-gradient(95deg, #128f97, #18bac2);"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</div>
-    </div>
-
-    <footer>
-        <div class="footer-col">
-            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
-                <i class="fas fa-bell" style="font-size: 2rem; color:#2cd4db;"></i>
-                <span style="font-weight: 800; font-size: 1.5rem;">ناقوس</span>
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-crown"></i> آژانس تبلیغاتی پیشرو</div>
+                <h1>تبلیغات هدفمند <br> با صدای <span style="color:#2cd4db;">ناقوس</span></h1>
+                <p>برند خود را با قدرت رسانه‌ای نوین و کمپین‌های خلاقانه به اوج برسانید.</p>
+                <div class="btn-group">
+                    <button class="btn-primary" onclick="openModal()"><i class="fas fa-bullhorn"></i> شروع کمپین فوری</button>
+                    <button class="btn-outline" onclick="showPage('portfolio')"><i class="fas fa-video"></i> مشاهده نمونه کارها</button>
+                </div>
             </div>
-            <p><i class="fas fa-map-pin"></i> بیرجند، ساختمان ناقوس، پلاک ۱۲</p>
-            <p><i class="fas fa-phone-alt"></i> +98 915 771 1094</p>
-            <p><i class="fas fa-envelope"></i> hello@naghos.ir</p>
+            <div class="hero-image"><i class="fas fa-chalkboard-user"></i></div>
         </div>
-        <div class="footer-col">
-            <h4 style="margin-bottom: 12px;"><i class="fas fa-link"></i> دسترسی سریع</h4>
-            <p><i class="fas fa-angle-left"></i> خدمات تبلیغاتی</p>
-            <p><i class="fas fa-angle-left"></i> نمونه کمپین‌ها</p>
-            <p><i class="fas fa-angle-left"></i> وبلاگ تخصصی</p>
-            <p><i class="fas fa-angle-left"></i> سوالات متداول</p>
+
+        <div class="features">
+            <div class="feature-card"><i class="fas fa-chart-simple feature-icon"></i><h3>تبلیغات حرفه‌ای</h3><p>طراحی کمپین‌های اختصاصی متناسب با برند شما</p></div>
+            <div class="feature-card"><i class="fas fa-glasses feature-icon"></i><h3>تأثیرگذاری بالا</h3><p>محتوای خلاقانه و جذاب برای جذب مخاطب هدف</p></div>
+            <div class="feature-card"><i class="fas fa-bullseye feature-icon"></i><h3>هدفگذاری دقیق</h3><p>دسترسی به مخاطبان واقعی و افزایش نرخ بازدهی</p></div>
+            <div class="feature-card"><i class="fas fa-rocket feature-icon"></i><h3>رشد سریع برند</h3><p>از استارتاپ‌ها تا برندهای بزرگ، نتایج قابل توجه</p></div>
         </div>
-        <div class="footer-col">
-            <h4 style="margin-bottom: 12px;"><i class="fas fa-share-alt"></i> شبکه‌های اجتماعی</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-aparat"></i></a>
+
+        <div class="stats">
+            <div class="stat-item"><div class="stat-number"><i class="fas fa-user-plus"></i> +۲۳۰</div><div class="stat-label">برندهای همکار</div></div>
+            <div class="stat-item"><div class="stat-number"><i class="fas fa-chart-line"></i> ۹۸٪</div><div class="stat-label">رضایت مشتریان</div></div>
+            <div class="stat-item"><div class="stat-number"><i class="fas fa-calendar-week"></i> ۱,۲۴۰+</div><div class="stat-label">کمپین موفق</div></div>
+            <div class="stat-item"><div class="stat-number"><i class="fas fa-trophy"></i> ۱۵</div><div class="stat-label">جایزه صنعت تبلیغات</div></div>
+        </div>
+
+        <div class="portfolio">
+            <div class="section-title"><span>⚡ پلتفرم‌های تبلیغاتی ناقوس ⚡</span></div>
+            <div class="campaign-grid">
+                <div class="camp-card"><i class="fab fa-google"></i><h4>Google Ads</h4><p>تبلیغات جستجو، نمایش و یوتیوب</p></div>
+                <div class="camp-card"><i class="fab fa-instagram"></i><h4>شبکه‌های اجتماعی</h4><p>اینستاگرام، تلگرام، لینکدین</p></div>
+                <div class="camp-card"><i class="fas fa-tv"></i><h4>تبلیغات دیجیتال اوت‌دور</h4><p>بیلبوردهای هوشمند و تبلیغات درون شهری</p></div>
+                <div class="camp-card"><i class="fas fa-podcast"></i><h4>پادکست و رادیو</h4><p>تبلیغات صوتی در پادکست‌های فارسی</p></div>
             </div>
-            <p style="margin-top: 20px;"><i class="fas fa-certificate"></i> دارای نماد اعتماد دیجیتال</p>
         </div>
-        <div class="copyright"><i class="far fa-copyright"></i> ۲۰۲۵ ناقوس | تمامی حقوق محفوظ است</div>
-    </footer>
+
+        <div class="team-section">
+            <div class="team-card"><i class="fas fa-user-tie team-icon"></i><div class="team-role">مدیر مجموعه</div><div class="team-name">علی علیپور</div></div>
+            <div class="team-card"><i class="fas fa-laptop-code team-icon"></i><div class="team-role">سازنده سایت</div><div class="team-name">محمد حسین صنعتی</div></div>
+        </div>
+
+        <div class="cta" id="ctaButton">
+            <i class="fas fa-bell" style="font-size: 3rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
+            <h2>صدای برندتان را به گوش جهان برسانید!</h2>
+            <p>همین امروز با تیم ناقوس مشاوره رایگان دریافت کنید و شگفت‌زده شوید.</p>
+            <div class="btn-primary" style="display: inline-flex; background: linear-gradient(95deg, #128f97, #18bac2);" onclick="openModal()"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</div>
+        </div>
+
+        <footer>
+            <div class="footer-col">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 18px;">
+                    <i class="fas fa-bell" style="font-size: 2rem; color:#2cd4db;"></i>
+                    <span style="font-weight: 800; font-size: 1.5rem;">ناقوس</span>
+                </div>
+                <p><i class="fas fa-map-pin"></i> بیرجند، غدیر ۷، پلاک ۲۳</p>
+                <p><i class="fas fa-phone-alt"></i> +98 915 771 1094</p>
+                <p><i class="fas fa-envelope"></i> hello@naghos.ir</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="margin-bottom: 12px;"><i class="fas fa-link"></i> دسترسی سریع</h4>
+                <p onclick="showPage('services')" style="cursor:pointer;"><i class="fas fa-angle-left"></i> خدمات تبلیغاتی</p>
+                <p onclick="showPage('portfolio')" style="cursor:pointer;"><i class="fas fa-angle-left"></i> نمونه کارها</p>
+                <p onclick="showPage('contact')" style="cursor:pointer;"><i class="fas fa-angle-left"></i> تماس با ما</p>
+                <p onclick="showPage('team')" style="cursor:pointer;"><i class="fas fa-angle-left"></i> گروه ناقوس</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="margin-bottom: 12px;"><i class="fas fa-share-alt"></i> شبکه‌های اجتماعی</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-aparat"></i></a>
+                </div>
+                <p style="margin-top: 20px;"><i class="fas fa-certificate"></i> دارای نماد اعتماد دیجیتال</p>
+            </div>
+            <div class="copyright"><i class="far fa-copyright"></i> ۲۰۲۵ ناقوس | تمامی حقوق محفوظ است</div>
+        </footer>
+    </div>
+
+    <!-- صفحات جداگانه برای هر تب -->
+    <div id="pageServices" class="page-container">
+        <div class="page-content">
+            <i class="fas fa-chart-line"></i>
+            <h2>خدمات تبلیغاتی ناقوس</h2>
+            <p>طراحی کمپین‌های اختصاصی، مدیریت شبکه‌های اجتماعی، تولید محتوای خلاقانه و مشاوره تبلیغات دیجیتال</p>
+            <div class="soon-badge"><i class="fas fa-clock"></i> به زودی اضافه می‌شود</div>
+            <div class="back-home"><button class="btn-outline" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</button></div>
+        </div>
+    </div>
+
+    <div id="pageCampaigns" class="page-container">
+        <div class="page-content">
+            <i class="fas fa-ad"></i>
+            <h2>کمپین‌های تبلیغاتی</h2>
+            <p>مدیریت حرفه‌ای کمپین‌های گوگل، اینستاگرام، تلگرام و بیلبوردهای هوشمند با تحلیل دقیق بازدهی</p>
+            <div class="soon-badge"><i class="fas fa-clock"></i> به زودی اضافه می‌شود</div>
+            <div class="back-home"><button class="btn-outline" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</button></div>
+        </div>
+    </div>
+
+    <div id="pagePortfolio" class="page-container">
+        <div class="page-content">
+            <i class="fas fa-images"></i>
+            <h2>نمونه کارهای ناقوس</h2>
+            <p>گالری موفق‌ترین کمپین‌های تبلیغاتی، بنرها، ویدیوها و استراتژی‌های خلاقانه برای برندهای معروف</p>
+            <div class="soon-badge"><i class="fas fa-clock"></i> به زودی اضافه می‌شود</div>
+            <div class="back-home"><button class="btn-outline" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</button></div>
+        </div>
+    </div>
+
+    <div id="pageTeam" class="page-container">
+        <div class="page-content">
+            <i class="fas fa-users"></i>
+            <h2>گروه ناقوس</h2>
+            <p>تیم متخصص ناقوس شامل کارشناسان تبلیغات، طراحان گرافیک، تولیدکنندگان محتوا و مدیران کمپین</p>
+            <div class="soon-badge"><i class="fas fa-clock"></i> به زودی اضافه می‌شود</div>
+            <div class="back-home"><button class="btn-outline" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</button></div>
+        </div>
+    </div>
+
+    <div id="pageContact" class="page-container">
+        <div class="page-content">
+            <i class="fas fa-headset"></i>
+            <h2>تماس با ناقوس</h2>
+            <p>راه‌های ارتباطی: تلفن، ایمیل، پیام در شبکه‌های اجتماعی و فرم درخواست مشاوره آنلاین</p>
+            <div class="soon-badge"><i class="fas fa-clock"></i> به زودی اضافه می‌شود</div>
+            <div class="back-home"><button class="btn-outline" onclick="showPage('home')"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</button></div>
+        </div>
+    </div>
+
 </div>
 
-<!-- مودال فرم ثبت اطلاعات کاربر -->
+<!-- مودال فرم -->
 <div id="infoModal" class="modal">
     <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal" onclick="closeModal()">&times;</span>
         <i class="fas fa-bullhorn" style="font-size: 3rem; color: #2cd4db; margin-bottom: 15px;"></i>
         <h3>درخواست تبلیغات</h3>
         <p style="margin-bottom: 20px;">لطفاً اطلاعات خود را وارد کنید تا کارشناسان ناقوس با شما تماس بگیرند.</p>
@@ -667,46 +706,56 @@
 </div>
 
 <script>
-    const modal = document.getElementById('infoModal');
-    const ctaBtn = document.getElementById('ctaButton');
-    const closeModal = document.querySelector('.close-modal');
+    function showPage(page) {
+        // مخفی کردن همه صفحات
+        document.querySelectorAll('.page-container').forEach(el => el.classList.remove('active'));
+        document.getElementById('mainPage').style.display = 'none';
 
-    ctaBtn.addEventListener('click', () => {
-        modal.style.display = 'flex';
-    });
-
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
+        if (page === 'home') {
+            document.getElementById('mainPage').style.display = 'block';
+            return;
         }
-    });
 
-    document.getElementById('adForm').addEventListener('submit', (e) => {
+        // نمایش صفحه مربوطه
+        const pageMap = {
+            'services': 'pageServices',
+            'campaigns': 'pageCampaigns',
+            'portfolio': 'pagePortfolio',
+            'team': 'pageTeam',
+            'contact': 'pageContact'
+        };
+        const target = document.getElementById(pageMap[page]);
+        if (target) target.classList.add('active');
+    }
+
+    function openModal() {
+        document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+        if (e.target === document.getElementById('infoModal')) {
+            closeModal();
+        }
+    }
+
+    document.getElementById('adForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const name = document.getElementById('fullname').value;
         if(name) {
-            alert(`✅ تشکر ${name} عزیز! درخواست شما ثبت شد. کارشناسان ناقوس حداکثر ظرف ۲۴ ساعت با شما تماس می‌گیرند.`);
-            modal.style.display = 'none';
-            document.getElementById('adForm').reset();
+            alert('✅ تشکر ' + name + ' عزیز! درخواست شما ثبت شد. کارشناسان ناقوس حداکثر ظرف ۲۴ ساعت با شما تماس می‌گیرند.');
+            closeModal();
+            this.reset();
         } else {
             alert('لطفاً نام خود را وارد کنید.');
         }
     });
 
-    const btns = document.querySelectorAll('.btn-primary, .btn-outline');
-    btns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            if(btn.innerText.includes('شروع کمپین') || btn.innerText.includes('مشاوره')){
-                modal.style.display = 'flex';
-            } else if(btn.innerText.includes('نمونه کار')){
-                alert('🎯 نمونه کارهای ناقوس: فیلم‌ها و بنرهای تبلیغاتی موفق در پروفایل آپلود شده است.');
-            }
-        });
-    });
+    // نمایش صفحه اصلی در ابتدا
+    document.getElementById('mainPage').style.display = 'block';
 </script>
 </body>
 </html>
