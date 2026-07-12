@@ -70,28 +70,53 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        .nav-links a {
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
             text-decoration: none;
             color: #ddf4ff;
             font-weight: 700;
             transition: 0.2s;
             font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 8px;
+            position: relative;
         }
-        .nav-links a i {
+        .nav-item i {
             font-size: 1.2rem;
             color: #2cd4db;
         }
-        .nav-links a:hover {
+        .nav-item:hover {
             color: #2cd4db;
             transform: translateY(-2px);
+        }
+        .nav-item .nav-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* هایلایت زیر تب */
+        .nav-highlight {
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2cd4db, #7fe6ec);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            margin-top: 2px;
+        }
+        .nav-item.active .nav-highlight {
+            width: 100%;
+        }
+        .nav-item:hover .nav-highlight {
+            width: 60%;
         }
 
         .hero {
@@ -353,7 +378,6 @@
             font-weight: 800;
         }
 
-        /* صفحه‌های جداگانه برای هر تب */
         .page-container {
             display: none;
             padding: 40px 0;
@@ -505,7 +529,6 @@
             opacity: 0.7;
         }
 
-        /* مخفی کردن صفحات دیگه */
         #mainPage.hidden { display: none; }
 
         @media (max-width: 800px) {
@@ -513,6 +536,8 @@
             .hero-image i { font-size: 8rem; }
             .section-title { font-size: 1.8rem; }
             .page-content { padding: 30px 20px; }
+            .nav-links { gap: 12px; }
+            .nav-item { font-size: 0.85rem; padding: 4px 6px; }
         }
     </style>
 </head>
@@ -527,12 +552,30 @@
                 <div class="site-title">ناقوس</div>
             </div>
             <div class="nav-links">
-                <a onclick="showPage('home')"><i class="fas fa-home"></i> خانه</a>
-                <a onclick="showPage('services')"><i class="fas fa-chart-line"></i> خدمات</a>
-                <a onclick="showPage('campaigns')"><i class="fas fa-ad"></i> کمپین‌ها</a>
-                <a onclick="showPage('portfolio')"><i class="fas fa-images"></i> نمونه کار</a>
-                <a onclick="showPage('team')"><i class="fas fa-users"></i> گروه ناقوس</a>
-                <a onclick="showPage('contact')"><i class="fas fa-headset"></i> تماس</a>
+                <div class="nav-item active" onclick="showPage('home')" data-page="home">
+                    <div class="nav-text"><i class="fas fa-home"></i> خانه</div>
+                    <div class="nav-highlight"></div>
+                </div>
+                <div class="nav-item" onclick="showPage('services')" data-page="services">
+                    <div class="nav-text"><i class="fas fa-chart-line"></i> خدمات</div>
+                    <div class="nav-highlight"></div>
+                </div>
+                <div class="nav-item" onclick="showPage('campaigns')" data-page="campaigns">
+                    <div class="nav-text"><i class="fas fa-ad"></i> کمپین‌ها</div>
+                    <div class="nav-highlight"></div>
+                </div>
+                <div class="nav-item" onclick="showPage('portfolio')" data-page="portfolio">
+                    <div class="nav-text"><i class="fas fa-images"></i> نمونه کار</div>
+                    <div class="nav-highlight"></div>
+                </div>
+                <div class="nav-item" onclick="showPage('team')" data-page="team">
+                    <div class="nav-text"><i class="fas fa-users"></i> گروه ناقوس</div>
+                    <div class="nav-highlight"></div>
+                </div>
+                <div class="nav-item" onclick="showPage('contact')" data-page="contact">
+                    <div class="nav-text"><i class="fas fa-headset"></i> تماس</div>
+                    <div class="nav-highlight"></div>
+                </div>
             </div>
         </div>
 
@@ -711,8 +754,12 @@
         document.querySelectorAll('.page-container').forEach(el => el.classList.remove('active'));
         document.getElementById('mainPage').style.display = 'none';
 
+        // برداشتن کلاس active از همه تب‌ها
+        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+
         if (page === 'home') {
             document.getElementById('mainPage').style.display = 'block';
+            document.querySelector('.nav-item[data-page="home"]').classList.add('active');
             return;
         }
 
@@ -725,37 +772,5 @@
             'contact': 'pageContact'
         };
         const target = document.getElementById(pageMap[page]);
-        if (target) target.classList.add('active');
-    }
-
-    function openModal() {
-        document.getElementById('infoModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('infoModal').style.display = 'none';
-    }
-
-    window.onclick = function(e) {
-        if (e.target === document.getElementById('infoModal')) {
-            closeModal();
-        }
-    }
-
-    document.getElementById('adForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('fullname').value;
-        if(name) {
-            alert('✅ تشکر ' + name + ' عزیز! درخواست شما ثبت شد. کارشناسان ناقوس حداکثر ظرف ۲۴ ساعت با شما تماس می‌گیرند.');
-            closeModal();
-            this.reset();
-        } else {
-            alert('لطفاً نام خود را وارد کنید.');
-        }
-    });
-
-    // نمایش صفحه اصلی در ابتدا
-    document.getElementById('mainPage').style.display = 'block';
-</script>
-</body>
-</html>
+        if (target) {
+            target.classList.add
