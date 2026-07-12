@@ -13,8 +13,7 @@
             box-sizing: border-box;
         }
 
-        /* همه چیز وزیر متن بُلد */
-        body, html, p, h1, h2, h3, h4, h5, a, span, div, button, li, input, label, textarea, select, option, .stat-number, .stat-label, .copyright, .footer-col p, .team-role, .team-name, .soon-popup, .modal-content p, .modal-content h3, .form-group label, .close-modal, .page-content h2, .page-content p, .page-content h3 {
+        body, html, p, h1, h2, h3, h4, h5, a, span, div, button, li, input, label, textarea, select, option, .stat-number, .stat-label, .copyright, .footer-col p, .team-role, .team-name, .modal-content p, .modal-content h3, .form-group label, .close-modal, .page-content h2, .page-content p {
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-weight: 700 !important;
         }
@@ -103,7 +102,6 @@
             gap: 8px;
         }
 
-        /* هایلایت زیر تب */
         .nav-highlight {
             width: 0;
             height: 3px;
@@ -529,7 +527,7 @@
             opacity: 0.7;
         }
 
-        #mainPage.hidden { display: none; }
+        #mainPage { display: block; }
 
         @media (max-width: 800px) {
             .hero-content h1 { font-size: 2.2rem; }
@@ -621,11 +619,11 @@
             <div class="team-card"><i class="fas fa-laptop-code team-icon"></i><div class="team-role">سازنده سایت</div><div class="team-name">محمد حسین صنعتی</div></div>
         </div>
 
-        <div class="cta" id="ctaButton">
+        <div class="cta" id="ctaButton" onclick="openModal()">
             <i class="fas fa-bell" style="font-size: 3rem; color: #2cd4db; margin-bottom: 10px; display: inline-block;"></i>
             <h2>صدای برندتان را به گوش جهان برسانید!</h2>
             <p>همین امروز با تیم ناقوس مشاوره رایگان دریافت کنید و شگفت‌زده شوید.</p>
-            <div class="btn-primary" style="display: inline-flex; background: linear-gradient(95deg, #128f97, #18bac2);" onclick="openModal()"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</div>
+            <div class="btn-primary" style="display: inline-flex; background: linear-gradient(95deg, #128f97, #18bac2);"><i class="fas fa-calendar-check"></i> رزرو مشاوره آنلاین</div>
         </div>
 
         <footer>
@@ -660,7 +658,7 @@
         </footer>
     </div>
 
-    <!-- صفحات جداگانه برای هر تب -->
+    <!-- صفحات جداگانه -->
     <div id="pageServices" class="page-container">
         <div class="page-content">
             <i class="fas fa-chart-line"></i>
@@ -713,7 +711,7 @@
 
 </div>
 
-<!-- مودال فرم -->
+<!-- مودال -->
 <div id="infoModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -751,11 +749,19 @@
 <script>
     function showPage(page) {
         // مخفی کردن همه صفحات
-        document.querySelectorAll('.page-container').forEach(el => el.classList.remove('active'));
+        var containers = document.querySelectorAll('.page-container');
+        for (var i = 0; i < containers.length; i++) {
+            containers[i].classList.remove('active');
+        }
+        
+        // مخفی کردن صفحه اصلی
         document.getElementById('mainPage').style.display = 'none';
 
         // برداشتن کلاس active از همه تب‌ها
-        document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+        var navItems = document.querySelectorAll('.nav-item');
+        for (var i = 0; i < navItems.length; i++) {
+            navItems[i].classList.remove('active');
+        }
 
         if (page === 'home') {
             document.getElementById('mainPage').style.display = 'block';
@@ -764,13 +770,53 @@
         }
 
         // نمایش صفحه مربوطه
-        const pageMap = {
+        var pageMap = {
             'services': 'pageServices',
             'campaigns': 'pageCampaigns',
             'portfolio': 'pagePortfolio',
             'team': 'pageTeam',
             'contact': 'pageContact'
         };
-        const target = document.getElementById(pageMap[page]);
+        
+        var target = document.getElementById(pageMap[page]);
         if (target) {
-            target.classList.add
+            target.classList.add('active');
+            // فعال کردن هایلایت برای تب مورد نظر
+            var activeNav = document.querySelector('.nav-item[data-page="' + page + '"]');
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+        }
+    }
+
+    function openModal() {
+        document.getElementById('infoModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('infoModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+        if (e.target === document.getElementById('infoModal')) {
+            closeModal();
+        }
+    }
+
+    document.getElementById('adForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('fullname').value;
+        if(name) {
+            alert('✅ تشکر ' + name + ' عزیز! درخواست شما ثبت شد. کارشناسان ناقوس حداکثر ظرف ۲۴ ساعت با شما تماس می‌گیرند.');
+            closeModal();
+            this.reset();
+        } else {
+            alert('لطفاً نام خود را وارد کنید.');
+        }
+    });
+
+    // نمایش صفحه اصلی در ابتدا
+    document.getElementById('mainPage').style.display = 'block';
+</script>
+</body>
+</html>
